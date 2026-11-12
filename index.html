@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <base target="_top">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
-<title>Community Health Intelligence | ระบบสารสนเทศสุขภาพชุมชน</title>
+<title>หน้าเว็บแอปโรงพยาบาลส่งเสริมสุขภาพตำบลโนนสมบูรณ์ อำเภอบ้านแฮด จังหวัดขอนแก่น</title>
 <style>
 :root{--green:#00b894;--green2:#16d6a3;--blue:#3478f6;--navy:#183153;--bg:#f4f6ff;--card:#fff;--muted:#64748b;--danger:#ed4767;--warn:#f59e0b;--line:#e3e6fa;--purple:#8b5cf6;--pink:#f43f8c;--orange:#ff9f43}
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Thai",sans-serif;background:radial-gradient(ellipse at 8% 0%,#b9fff0 0,transparent 36%),radial-gradient(ellipse at 96% 10%,#eadcff 0,transparent 33%),radial-gradient(ellipse at 55% 100%,#fff0c8 0,transparent 28%),var(--bg);color:#173042;min-height:100vh}
-header{height:72px;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 4%;position:sticky;top:0;z-index:20;box-shadow:0 4px 18px rgba(48,65,112,.06)}
+header{height:72px;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0 4%;position:sticky;top:0;z-index:20;box-shadow:0 4px 18px rgba(48,65,112,.06)}
 .brand{font-weight:850;color:#008f83;font-size:19px}.brand small{display:block;color:var(--muted);font-size:11px;font-weight:500}
 button{border:0;border-radius:11px;padding:10px 16px;font-weight:750;cursor:pointer;transition:transform .16s,box-shadow .16s,filter .16s}button:hover{transform:translateY(-1px);filter:saturate(1.18)}button:focus-visible{outline:3px solid #3478f655;outline-offset:2px}button:disabled{opacity:.65;cursor:wait;transform:none}.primary{background:linear-gradient(110deg,#00b894,#3478f6 58%,#8b5cf6);color:#fff;box-shadow:0 7px 18px #3478f644}.outline{background:#fff;border:1px solid #b9ece3;color:#008f83}
 main{max-width:1450px;margin:auto;padding:26px}.hero{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:18px}.hero-copy{flex:1}.hero h1{margin:0;font-size:29px;letter-spacing:-.4px}.hero p{margin:5px 0 14px;color:var(--muted)}.hero-art{width:min(390px,36%);min-width:280px;margin:0;filter:drop-shadow(0 12px 16px #344d8b16)}.hero-art svg{display:block;width:100%;height:auto}.survey-banner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 8px 14px}.survey-banner h2{margin:0;font-size:22px}.survey-banner p{max-width:780px}.survey-art{width:190px;flex:none}.survey-art svg{display:block;width:100%;height:auto}
@@ -19,7 +19,8 @@ main{max-width:1450px;margin:auto;padding:26px}.hero{display:flex;justify-conten
 .metric{font-size:31px;font-weight:850;margin:8px 0;color:#23385c}.label{font-size:13px;color:var(--muted)}.risk{border-left:4px solid var(--warn)}
 .section{margin-top:20px}.two{display:grid;grid-template-columns:1.25fr .75fr;gap:15px}.bar{height:12px;background:#edf0fb;border-radius:99px;overflow:hidden;margin:10px 0}.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#00d3a5,#3478f6,#f43f8c);transition:width .4s}
 .table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:11px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--muted);background:#f7f8ff}tbody tr:hover{background:#f7fbff}
-.hidden{display:none!important}.panel{display:none}.panel.active{display:block}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.form-grid label{font-size:13px;font-weight:700}.form-grid input,.form-grid select,.form-grid textarea{width:100%;margin-top:5px;padding:11px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fcfdff}.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus,.login input:focus{outline:3px solid #2878ff24;border-color:#6298ff}
+.hidden{display:none!important}body.guest-mode [data-staff-only]{display:none!important}.panel{display:none}.panel.active{display:block}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.form-grid label{font-size:13px;font-weight:700}.form-grid input,.form-grid select,.form-grid textarea{width:100%;margin-top:5px;padding:11px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fcfdff}.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus,.login input:focus{outline:3px solid #2878ff24;border-color:#6298ff}
+.login-card{max-width:540px;margin-top:20px;border-top:4px solid #8b5cf6}.login-card form{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:end}.login-card label{font-size:13px;font-weight:700}.login-card input{width:100%;margin-top:5px;padding:11px;border:1px solid var(--line);border-radius:10px;font:inherit}.login-card button{grid-column:1/-1}.public-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.session-status{color:var(--muted);font-size:13px}
 .full{grid-column:1/-1}.badge{padding:5px 9px;border-radius:99px;font-size:12px;font-weight:750;background:#ddfbf1;color:#07876e}.orange{background:#fff1d8;color:#b76c00}.red{background:#ffe5eb;color:var(--danger)}
 .map-actions{display:flex;align-items:end;gap:9px;flex-wrap:wrap;margin:14px 0}.map-actions button{padding:9px 13px}.map-household-select{display:grid;gap:5px;min-width:min(280px,100%);font-size:13px;font-weight:700}.map-household-select select{padding:10px;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit}.leaflet-map{height:min(65vh,620px);min-height:360px;border:1px solid var(--line);border-radius:15px;z-index:0}.map-info{margin:10px 0;color:var(--muted);font-size:14px}.map-privacy{font-size:12px;color:var(--muted)}.selected-marker-icon,.household-marker-icon{background:transparent;border:0}.selected-pin{background:#f43f8c;border:3px solid #fff;border-radius:50%;width:22px;height:22px;box-shadow:0 2px 12px #734b8c88}.household-pin{background:#3478f6;border:3px solid #fff;border-radius:50%;width:17px;height:17px;box-shadow:0 2px 8px #1e3a8a99}.table-empty{color:var(--muted);text-align:center;padding:18px}
 .section-tools{display:flex;justify-content:flex-end;margin:12px 0}.section-tools button{padding:8px 13px}
@@ -27,14 +28,14 @@ main{max-width:1450px;margin:auto;padding:26px}.hero{display:flex;justify-conten
 .survey-fieldset{border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0;background:#fff}.survey-fieldset legend{padding:0 8px;font-weight:800;color:#344d8b}.survey-help{font-size:13px;color:var(--muted);margin:3px 0 13px}.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px}.check-grid label{display:flex;align-items:flex-start;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fcfdff;font-size:13px}.check-grid input{width:auto;margin:3px 0 0;accent-color:#3478f6}.survey-person{border:1px solid #dce4fb;border-left:4px solid #8b5cf6;border-radius:13px;padding:14px;margin:12px 0;background:#fcfcff}.survey-person-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.survey-person h3{margin:0;color:#344d8b}.survey-person details{margin-top:10px;border-top:1px solid var(--line);padding-top:10px}.survey-person summary{font-weight:750;cursor:pointer;color:#42609a}.survey-person .form-grid{margin-top:10px}.danger-button{background:#fff0f2;color:#c43150;border:1px solid #ffd0da}.survey-list{margin-top:18px}
 .export-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}.export-card{padding:18px;border-radius:14px;background:#fbfcff;border:1px solid var(--line)}.export-card:nth-child(1){border-top:4px solid #3478f6}.export-card:nth-child(2){border-top:4px solid #00b894}.export-card:nth-child(3){border-top:4px solid #f43f8c}.export-card p{min-height:42px;color:var(--muted);font-size:13px}.export-notice{padding:12px 15px;background:#fff8e8;border-left:4px solid #ff9f43;border-radius:9px;color:#73530c;font-size:13px}.export-status{min-height:22px;color:var(--muted)}
 .toast{position:fixed;right:18px;bottom:18px;background:#183153;color:white;padding:13px 18px;border-radius:12px;display:none;box-shadow:0 8px 22px #172a4a40;z-index:110}
-@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.export-actions{grid-template-columns:1fr}.hero-art{width:36%;min-width:230px}}@media(max-width:560px){header{padding:0 14px}.brand{font-size:15px}.hero{align-items:start;flex-direction:column;gap:10px}.hero-art{width:100%;max-width:340px;min-width:0;align-self:center}.survey-banner{align-items:start}.survey-banner h2{font-size:20px}.survey-art{width:120px}.grid,.form-grid{grid-template-columns:1fr}.hero h1{font-size:22px}main{padding:16px}.metric{font-size:25px}.full{grid-column:auto}}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.export-actions{grid-template-columns:1fr}.hero-art{width:36%;min-width:230px}}@media(max-width:560px){header{height:auto;min-height:72px;padding:10px 14px}.brand{font-size:13px;line-height:1.3}.brand small{font-size:10px}.badge-link{font-size:10px;padding:6px 8px;white-space:nowrap}.hero{align-items:start;flex-direction:column;gap:10px}.hero-art{width:100%;max-width:340px;min-width:0;align-self:center}.survey-banner{align-items:start}.survey-banner h2{font-size:20px}.survey-art{width:120px}.grid,.form-grid{grid-template-columns:1fr}.hero h1{font-size:22px}main{padding:16px}.metric{font-size:25px}.full{grid-column:auto}}
 </style>
 </head>
-<body>
-<header><div class="brand">CHIS · Community Health Intelligence<small>ระบบสารสนเทศเพื่อสำรวจสุขภาพชุมชนระดับครัวเรือน</small></div>
-<div><a class="badge badge-link" href="https://script.google.com/macros/s/AKfycbz0nCUJ0wvNiIHHlid6DvHLltFh84M1l5Eq-9f2GSx8GC3juPiJ8TTzE1FIeeDtSoNT/exec" target="_blank" rel="noopener">เปิดเว็บแอป GAS ↗</a></div></header>
+<body class="guest-mode">
+<header><div class="brand">โรงพยาบาลส่งเสริมสุขภาพตำบลโนนสมบูรณ์<small>อำเภอบ้านแฮด จังหวัดขอนแก่น · ระบบสำรวจสุขภาพชุมชน</small></div>
+<div class="header-actions"><span id="sessionStatus" class="session-status" aria-live="polite">โหมดบุคคลทั่วไป</span><button id="logoutButton" class="outline hidden" type="button" onclick="staffLogout()">ออกจากระบบ</button><a class="badge badge-link" href="https://script.google.com/macros/s/AKfycbyz0bW80PPkqSO-apkbJNugcpLNEsNdsiCeTpBe6aI/dev" target="_blank" rel="noopener">เปิดเว็บแอป GAS ↗</a></div></header>
 <main>
-<div class="hero"><div class="hero-copy"><h1>แดชบอร์ดสุขภาพชุมชน</h1><p>สรุปข้อมูลครัวเรือน แบบสำรวจชุมชน กลุ่มสุขภาพสำคัญ และความคืบหน้าการสำรวจ</p><button class="primary" onclick="openPanel('household')">+ บันทึกข้อมูลครัวเรือน</button></div>
+<div class="hero"><div class="hero-copy"><h1>แบบสำรวจสุขภาพชุมชน</h1><p>ส่งข้อมูลครัวเรือนและสุขภาพให้โรงพยาบาลส่งเสริมสุขภาพตำบลโนนสมบูรณ์</p><button class="primary" onclick="openPanel('household')">+ บันทึกข้อมูลครัวเรือน</button></div>
 <figure class="hero-art" role="img" aria-label="ภาพประกอบเจ้าหน้าที่สุขภาพดูแลครอบครัวในชุมชน">
 <svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 <defs><linearGradient id="villageSky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e1fff6"/><stop offset="1" stop-color="#e9e7ff"/></linearGradient><linearGradient id="coat" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#d8f6f0"/></linearGradient></defs>
@@ -44,19 +45,23 @@ main{max-width:1450px;margin:auto;padding:26px}.hero{display:flex;justify-conten
 <g><path d="M249 122c2-22 17-34 35-34s33 12 35 34v82h-70z" fill="url(#coat)"/><circle cx="284" cy="75" r="24" fill="#c98261"/><path d="M260 74c0-26 15-39 34-34 15 4 22 18 15 37-6-9-17-15-30-14-5 5-11 9-19 11" fill="#24334e"/><path d="M275 86c7 4 14 4 20 0" stroke="#9b4e46" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M267 119 249 133l-15 37 12 5 21-31" fill="#c98261"/><path d="m302 120 18 12 14 29-11 6-21-24" fill="#c98261"/><rect x="271" y="127" width="27" height="35" rx="5" fill="#3478f6"/><path d="M284.5 135v19m-9.5-9.5h19" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M268 204h34l9 27h-54z" fill="#183153"/><path d="M278 122c-3 12 5 21 13 21s14-9 11-21" fill="none" stroke="#00a88f" stroke-width="3"/></g>
 <g fill="#fff"><circle cx="221" cy="74" r="17"/><path d="M221 64v20m-10-10h20" stroke="#f43f8c" stroke-width="4" stroke-linecap="round"/></g><g fill="#3478f6"><circle cx="354" cy="188" r="5"/><circle cx="371" cy="202" r="3"/></g><path d="M345 220c9-12 18-12 27 0-9 12-18 12-27 0m13-13v26" fill="none" stroke="#07876e" stroke-width="3" stroke-linecap="round"/>
 </svg></figure></div>
-<div id="gasNotice" class="gas-notice hidden" role="status">หน้านี้เปิดจาก GitHub Pages จึงยังไม่เชื่อมต่อการอ่านและบันทึกข้อมูล กรุณาเปิด <a href="https://script.google.com/macros/s/AKfycbz0nCUJ0wvNiIHHlid6DvHLltFh84M1l5Eq-9f2GSx8GC3juPiJ8TTzE1FIeeDtSoNT/exec" target="_blank" rel="noopener">เว็บแอป GAS</a> เพื่อใช้งานข้อมูลจริง</div>
+<div id="gasNotice" class="gas-notice hidden" role="status">หน้านี้เปิดจาก GitHub Pages จึงยังไม่เชื่อมต่อการอ่านและบันทึกข้อมูล กรุณาเปิด <a href="https://script.google.com/macros/s/AKfycbyz0bW80PPkqSO-apkbJNugcpLNEsNdsiCeTpBe6aI/dev" target="_blank" rel="noopener">เว็บแอป GAS</a> เพื่อใช้งานข้อมูลจริง</div>
+<section id="publicHome" class="panel active" role="region" aria-label="แบบฟอร์มสำหรับบุคคลทั่วไป"><div class="card"><h1>ระบบรับข้อมูลสุขภาพชุมชน</h1><p>บุคคลทั่วไปสามารถกรอกแบบฟอร์มได้ ข้อมูลที่ส่งจะไม่แสดงเป็นรายการหรือรายงานสาธารณะ เจ้าหน้าที่ต้องเข้าสู่ระบบก่อนจึงจะดูข้อมูลที่บันทึกไว้ได้</p><div class="public-actions"><button type="button" class="primary" onclick="openPanel('household')">กรอกข้อมูลครัวเรือน</button><button type="button" class="outline" onclick="openPanel('community')">กรอกแบบสำรวจชุมชน</button></div></div>
+<div class="card login-card"><h2>เข้าสู่ระบบเจ้าหน้าที่</h2><p class="survey-help">สำหรับดูแดชบอร์ด รายการข้อมูล แผนที่ และส่งออกข้อมูล</p><form id="loginForm" onsubmit="staffLogin(event)"><label>ชื่อผู้ใช้<input required name="username" autocomplete="username"></label><label>รหัสผ่าน<input required type="password" name="password" autocomplete="current-password"></label><button type="submit" class="primary">เข้าสู่ระบบ</button></form><p id="loginStatus" class="session-status" aria-live="polite"></p></div></section>
+
 <div class="tabs" role="tablist" aria-label="เมนูหลัก">
-<button type="button" class="tab active" role="tab" id="tab-dashboard" aria-controls="dashboard" aria-selected="true" tabindex="0" data-panel="dashboard"><span class="nav-icon" aria-hidden="true">📊</span>แดชบอร์ด</button>
+<button type="button" class="tab active" role="tab" id="tab-home" aria-controls="publicHome" aria-selected="true" tabindex="0" data-panel="publicHome">🏥 หน้าหลัก</button>
+<button type="button" class="tab" data-staff-only role="tab" id="tab-dashboard" aria-controls="dashboard" aria-selected="false" tabindex="-1" data-panel="dashboard"><span class="nav-icon" aria-hidden="true">📊</span>แดชบอร์ด</button>
 <button type="button" class="tab" role="tab" id="tab-household" aria-controls="household" aria-selected="false" tabindex="-1" data-panel="household"><span class="nav-icon" aria-hidden="true">🏠</span>ข้อมูลครัวเรือน</button>
 <button type="button" class="tab" role="tab" id="tab-community" aria-controls="community" aria-selected="false" tabindex="-1" data-panel="community"><span class="nav-icon" aria-hidden="true">📝</span>แบบสำรวจชุมชน</button>
-<button type="button" class="tab" role="tab" id="tab-survey" aria-controls="survey" aria-selected="false" tabindex="-1" data-panel="survey"><span class="nav-icon" aria-hidden="true">🧭</span>สถานะการสำรวจ</button>
-<button type="button" class="tab" role="tab" id="tab-hepatitis" aria-controls="hepatitis" aria-selected="false" tabindex="-1" data-panel="hepatitis"><span class="nav-icon" aria-hidden="true">🩺</span>ไวรัสตับอักเสบ B/C</button>
-<button type="button" class="tab" role="tab" id="tab-pet" aria-controls="pet" aria-selected="false" tabindex="-1" data-panel="pet"><span class="nav-icon" aria-hidden="true">🐾</span>สัตว์เลี้ยง/วัคซีน</button>
-<button type="button" class="tab" role="tab" id="tab-export" aria-controls="export" aria-selected="false" tabindex="-1" data-panel="export"><span class="nav-icon" aria-hidden="true">📤</span>ส่งออกข้อมูล</button>
-<button type="button" class="tab" role="tab" id="tab-map" aria-controls="map" aria-selected="false" tabindex="-1" data-panel="map"><span class="nav-icon" aria-hidden="true">📍</span>แผนที่ชุมชน</button>
+<button type="button" class="tab" data-staff-only role="tab" id="tab-survey" aria-controls="survey" aria-selected="false" tabindex="-1" data-panel="survey"><span class="nav-icon" aria-hidden="true">🧭</span>สถานะการสำรวจ</button>
+<button type="button" class="tab" data-staff-only role="tab" id="tab-hepatitis" aria-controls="hepatitis" aria-selected="false" tabindex="-1" data-panel="hepatitis"><span class="nav-icon" aria-hidden="true">🩺</span>ไวรัสตับอักเสบ B/C</button>
+<button type="button" class="tab" data-staff-only role="tab" id="tab-pet" aria-controls="pet" aria-selected="false" tabindex="-1" data-panel="pet"><span class="nav-icon" aria-hidden="true">🐾</span>สัตว์เลี้ยง/วัคซีน</button>
+<button type="button" class="tab" data-staff-only role="tab" id="tab-export" aria-controls="export" aria-selected="false" tabindex="-1" data-panel="export"><span class="nav-icon" aria-hidden="true">📤</span>ส่งออกข้อมูล</button>
+<button type="button" class="tab" data-staff-only role="tab" id="tab-map" aria-controls="map" aria-selected="false" tabindex="-1" data-panel="map"><span class="nav-icon" aria-hidden="true">📍</span>แผนที่ชุมชน</button>
 </div>
 
-<section id="dashboard" class="panel active" role="tabpanel" aria-labelledby="tab-dashboard" aria-hidden="false">
+<section id="dashboard" class="panel" data-staff-only role="tabpanel" aria-labelledby="tab-dashboard" aria-hidden="true">
 <div class="section-tools"><button type="button" class="outline" onclick="loadDashboard()">รีเฟรชข้อมูล</button></div>
 <div class="grid">
 <div class="card"><div class="label">ครัวเรือนทั้งหมด</div><div class="metric" id="mHouse">0</div><span class="badge">สำรวจครบแล้ว <span id="mSurvey">0</span></span></div>
@@ -70,18 +75,17 @@ main{max-width:1450px;margin:auto;padding:26px}.hero{display:flex;justify-conten
 </div>
 </section>
 
-<section id="household" class="panel" role="tabpanel" aria-labelledby="tab-household" aria-hidden="true"><div class="card"><h2>บันทึกข้อมูลครัวเรือน</h2><form id="householdForm" onsubmit="saveHousehold(event)"><div class="form-grid">
+<section id="household" class="panel" role="tabpanel" aria-labelledby="tab-household" aria-hidden="true"><div class="card"><h2>บันทึกข้อมูลครัวเรือน</h2><p class="survey-help">เมื่อกดบันทึก ระบบจะขอตำแหน่งปัจจุบันจากอุปกรณ์และบันทึกพิกัดให้อัตโนมัติ หากไม่อนุญาตตำแหน่งยังบันทึกข้อมูลได้ และเลือกหมุดจากแผนที่ภายหลังได้</p><form id="householdForm" onsubmit="saveHousehold(event)"><input type="hidden" id="householdLat" name="lat"><input type="hidden" id="householdLng" name="lng"><div class="form-grid">
 <label>รหัสครัวเรือน<input required id="householdId" name="householdId" placeholder="เช่น HH-001"></label>
 <label>ชื่อหัวหน้าครัวเรือน<input required name="headName"></label>
 <label>จำนวนสมาชิก<input required type="number" min="1" step="1" name="members"></label>
 <label>สถานะการสำรวจ<select name="surveyStatus"><option value="complete">สำรวจครบถ้วน</option><option value="partial">สำรวจบางส่วน</option><option value="pending">ยังไม่ได้สำรวจ</option></select></label>
-<label>ละติจูด<input id="householdLat" name="lat" inputmode="decimal" placeholder="ตัวอย่าง: 16.43"></label><label>ลองจิจูด<input id="householdLng" name="lng" inputmode="decimal" placeholder="ตัวอย่าง: 102.83"></label>
 <label>ผู้สูงอายุ<input type="number" min="0" step="1" name="elderly" value="0"></label><label>ผู้ป่วยโรคไม่ติดต่อเรื้อรัง (NCDs)<input type="number" min="0" step="1" name="ncd" value="0"></label>
 <label>คนพิการ<input type="number" min="0" step="1" name="disabled" value="0"></label><label>หญิงตั้งครรภ์<input type="number" min="0" step="1" name="pregnant" value="0"></label>
 <label class="full">หมายเหตุ<textarea name="note" rows="3"></textarea></label></div><br><button class="primary">บันทึกข้อมูล</button></form></div></section>
 
 <section id="community" class="panel" role="tabpanel" aria-labelledby="tab-community" aria-hidden="true">
-<div class="card"><div class="survey-banner"><div><h2>แบบสำรวจข้อมูลสุขภาพครัวเรือนและรายบุคคล</h2><p class="survey-help">แบบฟอร์มนี้ถอดหัวข้อจากแบบเก็บข้อมูลชุมชน 9 หน้า กรอกข้อมูลที่มีและเว้นช่องที่ไม่เกี่ยวข้องได้ ระบบจะบันทึกคำตอบทั้งหมดลง Google Sheets</p></div>
+<div class="card"><div class="survey-banner"><div><h2>แบบสำรวจข้อมูลสุขภาพครัวเรือนและรายบุคคล</h2><p class="survey-help">แบบฟอร์มนี้ถอดหัวข้อจากแบบเก็บข้อมูลชุมชน 9 หน้า กรอกข้อมูลที่มีและเว้นช่องที่ไม่เกี่ยวข้องได้ เมื่อกดบันทึก ระบบจะขอตำแหน่งอุปกรณ์ด้วย หากไม่ได้รับอนุญาตยังบันทึกข้อมูลได้และเพิ่มหมุดภายหลังจากแผนที่</p></div>
 <div class="survey-art" role="img" aria-label="ภาพประกอบแบบสำรวจชุมชนและการดูแลสุขภาพ"><svg viewBox="0 0 190 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="7" y="8" width="176" height="134" rx="25" fill="#effbf8"/><circle cx="153" cy="39" r="19" fill="#ffdc78"/><rect x="54" y="24" width="80" height="104" rx="12" fill="#8b5cf6"/><rect x="60" y="33" width="68" height="88" rx="8" fill="#fff"/><rect x="78" y="18" width="32" height="13" rx="6" fill="#344d8b"/><path d="m70 53 5 5 9-10m-14 25 5 5 9-10m-14 25 5 5 9-10" fill="none" stroke="#00b894" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M94 55h24M94 77h24M94 99h24" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/><circle cx="42" cy="105" r="20" fill="#ffd8c5"/><path d="M21 139c3-19 11-27 21-27s19 8 22 27" fill="#3478f6"/><path d="M35 104c-7-10-3-22 7-24 10-2 18 5 17 15-1 7-8 11-17 11z" fill="#483454"/><path d="M148 88c0-10 13-14 19-5 7-9 20-5 20 5 0 11-20 24-20 24s-19-13-19-24" fill="#f43f8c"/><path d="M18 37h20m-10-10v20" stroke="#00b894" stroke-width="4" stroke-linecap="round"/></svg></div></div>
 <form id="communitySurveyForm" onsubmit="saveCommunitySurvey(event)">
 <fieldset class="survey-fieldset"><legend>ข้อมูลผู้เก็บและครัวเรือน</legend><div class="form-grid survey-fields" data-survey-section="identity">
@@ -158,12 +162,12 @@ main{max-width:1450px;margin:auto;padding:26px}.hero{display:flex;justify-conten
 </div></fieldset>
 <div class="section-tools"><button class="primary" type="submit">บันทึกแบบสำรวจชุมชน</button></div>
 </form></div>
-<div class="card survey-list"><h3>แบบสำรวจที่บันทึกแล้ว</h3><div class="table-wrap"><table><thead><tr><th>รหัสครัวเรือน</th><th>หัวหน้าครัวเรือน</th><th>ผู้เก็บข้อมูล</th><th>วันที่สำรวจ</th><th>สมาชิก</th><th>วันที่บันทึก</th></tr></thead><tbody id="communitySurveyTable"></tbody></table></div></div>
+<div class="card survey-list" data-staff-only><h3>แบบสำรวจที่บันทึกแล้ว</h3><div class="table-wrap"><table><thead><tr><th>รหัสครัวเรือน</th><th>หัวหน้าครัวเรือน</th><th>ผู้เก็บข้อมูล</th><th>วันที่สำรวจ</th><th>สมาชิก</th><th>วันที่บันทึก</th></tr></thead><tbody id="communitySurveyTable"></tbody></table></div></div>
 </section>
 
-<section id="survey" class="panel" role="tabpanel" aria-labelledby="tab-survey" aria-hidden="true"><div class="card"><h2>ติดตามความคืบหน้าการสำรวจ</h2><div class="table-wrap"><table><thead><tr><th>รหัสครัวเรือน</th><th>หัวหน้าครัวเรือน</th><th>จำนวนสมาชิก</th><th>สถานะการสำรวจ</th></tr></thead><tbody id="surveyTable"></tbody></table></div></div></section>
+<section id="survey" class="panel" data-staff-only role="tabpanel" aria-labelledby="tab-survey" aria-hidden="true"><div class="card"><h2>ติดตามความคืบหน้าการสำรวจ</h2><div class="table-wrap"><table><thead><tr><th>รหัสครัวเรือน</th><th>หัวหน้าครัวเรือน</th><th>จำนวนสมาชิก</th><th>สถานะการสำรวจ</th></tr></thead><tbody id="surveyTable"></tbody></table></div></div></section>
 
-<section id="hepatitis" class="panel" role="tabpanel" aria-labelledby="tab-hepatitis" aria-hidden="true"><div class="card"><h2>บันทึกและติดตามข้อมูลไวรัสตับอักเสบ B/C</h2><form id="hepForm" onsubmit="saveHep(event)"><div class="form-grid">
+<section id="hepatitis" class="panel" data-staff-only role="tabpanel" aria-labelledby="tab-hepatitis" aria-hidden="true"><div class="card"><h2>บันทึกและติดตามข้อมูลไวรัสตับอักเสบ B/C</h2><form id="hepForm" onsubmit="saveHep(event)"><div class="form-grid">
 <label>ชื่อ–สกุล หรือรหัสผู้รับบริการ<input required name="person"></label>
 <label>ชนิดไวรัสตับอักเสบ<select name="virus"><option value="B">ไวรัสตับอักเสบ B</option><option value="C">ไวรัสตับอักเสบ C</option><option value="B และ C">ไวรัสตับอักเสบ B และ C</option></select></label>
 <label>ผลคัดกรอง<select name="screening"><option value="negative">ผลตรวจเป็นลบ</option><option value="positive">ผลตรวจเป็นบวก</option><option value="pending">รอผลตรวจ</option></select></label>
@@ -173,7 +177,7 @@ main{max-width:1450px;margin:auto;padding:26px}.hero{display:flex;justify-conten
 </div><br><button class="primary">บันทึกข้อมูล</button></form></div>
 <div class="card section"><h3>ประวัติการคัดกรองและติดตาม</h3><div class="table-wrap"><table><thead><tr><th>ชื่อ/รหัสผู้รับบริการ</th><th>ชนิดไวรัส</th><th>ผลคัดกรอง</th><th>ผลยืนยัน</th><th>การรักษา</th><th>วันที่บันทึก</th></tr></thead><tbody id="hepatitisTable"></tbody></table></div></div></section>
 
-<section id="pet" class="panel" role="tabpanel" aria-labelledby="tab-pet" aria-hidden="true"><div class="card"><h2>ข้อมูลสัตว์เลี้ยงและประวัติวัคซีน</h2><form id="petForm" onsubmit="savePet(event)"><div class="form-grid">
+<section id="pet" class="panel" data-staff-only role="tabpanel" aria-labelledby="tab-pet" aria-hidden="true"><div class="card"><h2>ข้อมูลสัตว์เลี้ยงและประวัติวัคซีน</h2><form id="petForm" onsubmit="savePet(event)"><div class="form-grid">
 <label>รหัสครัวเรือน<input required name="householdId"></label>
 <label>ชนิดสัตว์<select name="type"><option>สุนัข</option><option>แมว</option><option>สัตว์ปีก</option><option>อื่น ๆ</option></select></label>
 <label>จำนวนสัตว์<input required type="number" min="1" step="1" name="count"></label>
@@ -185,14 +189,14 @@ main{max-width:1450px;margin:auto;padding:26px}.hero{display:flex;justify-conten
 
 
 
-<section id="export" class="panel" role="tabpanel" aria-labelledby="tab-export" aria-hidden="true"><div class="card"><h2>ส่งออกข้อมูลทั้งหมด</h2><p class="label">ระบบจะดึงข้อมูลล่าสุดจาก Google Sheets ก่อนสร้างไฟล์ ซึ่งรวมข้อมูลครัวเรือน แบบสำรวจชุมชน ไวรัสตับอักเสบ และสัตว์เลี้ยง</p>
+<section id="export" class="panel" data-staff-only role="tabpanel" aria-labelledby="tab-export" aria-hidden="true"><div class="card"><h2>ส่งออกข้อมูลทั้งหมด</h2><p class="label">ระบบจะดึงข้อมูลล่าสุดจาก Google Sheets ก่อนสร้างไฟล์ ซึ่งรวมข้อมูลครัวเรือน แบบสำรวจชุมชน ไวรัสตับอักเสบ และสัตว์เลี้ยง</p>
 <div class="export-actions">
 <div class="export-card"><h3>Microsoft Word</h3><p>เอกสารรายงานภาษาไทยพร้อมตารางข้อมูลทุกหมวด</p><button type="button" class="primary" onclick="exportAllData('word')">ดาวน์โหลด Word (.doc)</button></div>
 <div class="export-card"><h3>Microsoft Excel</h3><p>สมุดงาน .xlsx แยกข้อมูลเป็นแผ่นงานตามหมวด</p><button type="button" class="primary" onclick="exportAllData('excel')">ดาวน์โหลด Excel (.xlsx)</button></div>
 <div class="export-card"><h3>PDF</h3><p>จัดรูปแบบรายงานสำหรับพิมพ์ แล้วเลือกบันทึกเป็น PDF ในหน้าต่างพิมพ์</p><button type="button" class="primary" onclick="exportAllData('pdf')">เปิดหน้าพิมพ์ / บันทึก PDF</button></div>
 </div><p id="exportStatus" class="export-status" aria-live="polite"></p><p class="export-notice">ไฟล์ที่ส่งออกมีข้อมูลสุขภาพและข้อมูลระบุตัวบุคคล ควรจัดเก็บและส่งต่อเฉพาะผู้ที่ได้รับอนุญาต</p></div></section>
 
-<section id="map" class="panel" role="tabpanel" aria-labelledby="tab-map" aria-hidden="true"><div class="card"><h2>แผนที่ชุมชน</h2><p class="label">กดปุ่มตำแหน่งปัจจุบันเพื่อขอพิกัดจากอุปกรณ์ หรือคลิกบนแผนที่เพื่อเลือกตำแหน่งด้วยตนเอง หมุดสีน้ำเงินคือครัวเรือนที่บันทึกไว้ หมุดสีชมพูคือตำแหน่งที่เลือก</p><div class="map-actions"><button type="button" class="primary" id="locateButton" onclick="locateCurrentPosition()">◎ ใช้ตำแหน่งปัจจุบัน</button><button type="button" class="outline" id="useLocationButton" onclick="useSelectedLocation()" disabled>ใช้พิกัดนี้ในแบบฟอร์มครัวเรือน</button><label class="map-household-select">เลือกครัวเรือนที่จะบันทึกหมุด<select id="mapHouseholdSelect"><option value="">เลือกครัวเรือน</option></select></label><button type="button" class="outline" id="savePinButton" onclick="savePinToHousehold()" disabled>บันทึกหมุดให้ครัวเรือนนี้</button><button type="button" class="outline" onclick="zoomToHouseholds()">ดูหมุดครัวเรือนทั้งหมด</button></div><div id="leafletMap" class="leaflet-map" role="application" aria-label="แผนที่ชุมชน"></div><p id="mapSummary" class="map-info" aria-live="polite">กำลังโหลดแผนที่…</p><p id="mapInfo" class="map-info" aria-live="polite">คลิกบนแผนที่เพื่อเลือกตำแหน่ง</p><p class="map-privacy">พื้นหลังแผนที่จาก © OpenStreetMap contributors ระบบไม่ส่งรหัสครัวเรือนหรือข้อมูลจากชีตไปยังผู้ให้บริการแผนที่ แต่คำขอแผนที่จะแสดงบริเวณที่กำลังเปิดดู</p></div></section>
+<section id="map" class="panel" data-staff-only role="tabpanel" aria-labelledby="tab-map" aria-hidden="true"><div class="card"><h2>แผนที่ชุมชน</h2><p class="label">กดปุ่มตำแหน่งปัจจุบันเพื่อขอพิกัดจากอุปกรณ์ หรือคลิกบนแผนที่เพื่อเลือกตำแหน่งด้วยตนเอง หมุดสีน้ำเงินคือครัวเรือนที่บันทึกไว้ หมุดสีชมพูคือตำแหน่งที่เลือก</p><div class="map-actions"><button type="button" class="primary" id="locateButton" onclick="locateCurrentPosition()">◎ ใช้ตำแหน่งปัจจุบัน</button><button type="button" class="outline" id="useLocationButton" onclick="useSelectedLocation()" disabled>ใช้พิกัดนี้ในแบบฟอร์มครัวเรือน</button><label class="map-household-select">เลือกครัวเรือนที่จะบันทึกหมุด<select id="mapHouseholdSelect"><option value="">เลือกครัวเรือน</option></select></label><button type="button" class="outline" id="savePinButton" onclick="savePinToHousehold()" disabled>บันทึกหมุดให้ครัวเรือนนี้</button><button type="button" class="outline" onclick="zoomToHouseholds()">ดูหมุดครัวเรือนทั้งหมด</button></div><div id="leafletMap" class="leaflet-map" role="application" aria-label="แผนที่ชุมชน"></div><p id="mapSummary" class="map-info" aria-live="polite">กำลังโหลดแผนที่…</p><p id="mapInfo" class="map-info" aria-live="polite">คลิกบนแผนที่เพื่อเลือกตำแหน่ง</p><p class="map-privacy">พื้นหลังแผนที่จาก © OpenStreetMap contributors ระบบไม่ส่งรหัสครัวเรือนหรือข้อมูลจากชีตไปยังผู้ให้บริการแผนที่ แต่คำขอแผนที่จะแสดงบริเวณที่กำลังเปิดดู</p></div></section>
 
 </main>
 <div class="toast" id="toast"></div>
@@ -200,6 +204,7 @@ main{max-width:1450px;margin:auto;padding:26px}.hero{display:flex;justify-conten
 <script>
 const local = {households:[], hepatitis:[], pets:[], communitySurveys:[]};
 const surveyFieldLabels={
+ location:"ตำแหน่งอุปกรณ์ขณะบันทึก",lat:"ละติจูด",lng:"ลองจิจูด",
  householdId:"รหัสครัวเรือน",headName:"หัวหน้าครัวเรือน",collector:"ผู้เก็บข้อมูล",surveyDate:"วันที่สำรวจ",houseNumber:"เลขที่บ้าน/เลขที่ครัวเรือน",surveyStatus:"สถานะการสำรวจ",
  householdType:"ประเภทครัวเรือน",householdTypeOther:"ประเภทครัวเรือนอื่น ๆ",totalMembers:"จำนวนสมาชิกทั้งหมด",maleCount:"จำนวนสมาชิกเพศชาย",femaleCount:"จำนวนสมาชิกเพศหญิง",otherGenderCount:"จำนวนสมาชิกเพศทางเลือก/อื่น ๆ",dwellingType:"ลักษณะที่พักอาศัย",dwellingOther:"ลักษณะที่พักอาศัยอื่น ๆ",tenure:"การถือครองที่พักอาศัย",tenureOther:"การถือครองอื่น ๆ",incomeRange:"รายได้รวมต่อเดือน",incomeSources:"แหล่งรายได้หลัก",incomeSourcesOther:"แหล่งรายได้อื่น ๆ",hasDebt:"สถานะหนี้สิน",debtAmount:"ยอดหนี้โดยประมาณ (บาท)",
  memberName:"ชื่อหรือรหัสสมาชิก",sex:"เพศ",age:"อายุ (ปี)",householdStatus:"สถานะในครัวเรือน",maritalStatus:"สถานภาพสมรส",education:"ระดับการศึกษา",occupation:"อาชีพ",healthCoverage:"สิทธิการรักษา",chronicDiseases:"โรคประจำตัว",chronicOther:"โรคประจำตัวอื่น ๆ",underTreatment:"กำลังรับการรักษาอยู่",continuousMedication:"รับประทานยาต่อเนื่อง",acuteIllness:"เจ็บป่วยเฉียบพลันในเดือนที่ผ่านมา",hospitalLastYear:"เข้ารับการรักษาในโรงพยาบาลในรอบ 1 ปี",disabilityType:"ความพิการ/ประเภท",mentalStress:"รู้สึกเครียดมาก",weightKg:"น้ำหนัก (กิโลกรัม)",heightCm:"ส่วนสูง (เซนติเมตร)",waistCm:"รอบเอว (เซนติเมตร)",diabetesScreen:"คัดกรองเบาหวานใน 1 ปีที่ผ่านมา",glucoseMgDl:"ผลน้ำตาล (mg/dL)",bloodPressureScreen:"คัดกรองความดันโลหิตใน 1 ปีที่ผ่านมา",bloodPressureResult:"ผลความดันโลหิต (mmHg)",cancerScreen:"ได้รับการคัดกรองมะเร็ง",cancerType:"ชนิดมะเร็งที่คัดกรอง",tobaccoUse:"การสูบบุหรี่/ยาสูบ",cigarettesPerDay:"จำนวนมวนต่อวัน",alcoholUse:"การดื่มแอลกอฮอล์",exercise:"การออกกำลังกาย",vegetableFruitDaily:"รับประทานผักและผลไม้ทุกวัน",annualHealthCheck:"ตรวจสุขภาพประจำปี",
@@ -210,7 +215,7 @@ const surveyFieldLabels={
 };
 function buildExportHtml(bundle){
  const sections=bundle.sheets.map(sheet=>'<section><h2>'+escapeHtml(sheet.name)+'</h2>'+exportTableHtml(sheet.headers,sheet.rows)+'</section>').join("");
- return '<!doctype html><html lang="th"><head><meta charset="utf-8"><title>รายงานข้อมูล CHIS</title><style>body{font-family:Arial,"Noto Sans Thai",sans-serif;color:#1f2937;font-size:11pt}h1{color:#146b63}h2{margin-top:26px;padding-bottom:5px;border-bottom:2px solid #00a88f;color:#344d8b}table{width:100%;border-collapse:collapse;margin:8px 0 18px;table-layout:auto}th,td{border:1px solid #aeb9cc;padding:5px 7px;text-align:left;vertical-align:top;white-space:pre-wrap;overflow-wrap:anywhere}th{background:#eaf4ff}tr:nth-child(even) td{background:#fbfcff}.empty{color:#64748b}.meta{color:#64748b}@page{size:A4 landscape;margin:12mm}@media print{section{page-break-inside:auto}tr{page-break-inside:avoid}}</style></head><body><h1>รายงานข้อมูลระบบสารสนเทศสุขภาพชุมชน (CHIS)</h1><p class="meta">ส่งออกเมื่อ '+escapeHtml(new Date().toLocaleString("th-TH"))+'</p>'+sections+'</body></html>';
+ return '<!doctype html><html lang="th"><head><meta charset="utf-8"><title>รายงาน รพ.สต.โนนสมบูรณ์</title><style>body{font-family:Arial,"Noto Sans Thai",sans-serif;color:#1f2937;font-size:11pt}h1{color:#146b63}h2{margin-top:26px;padding-bottom:5px;border-bottom:2px solid #00a88f;color:#344d8b}table{width:100%;border-collapse:collapse;margin:8px 0 18px;table-layout:auto}th,td{border:1px solid #aeb9cc;padding:5px 7px;text-align:left;vertical-align:top;white-space:pre-wrap;overflow-wrap:anywhere}th{background:#eaf4ff}tr:nth-child(even) td{background:#fbfcff}.empty{color:#64748b}.meta{color:#64748b}@page{size:A4 landscape;margin:12mm}@media print{section{page-break-inside:auto}tr{page-break-inside:avoid}}</style></head><body><h1>รายงานข้อมูลโรงพยาบาลส่งเสริมสุขภาพตำบลโนนสมบูรณ์<br>อำเภอบ้านแฮด จังหวัดขอนแก่น</h1><p class="meta">ส่งออกเมื่อ '+escapeHtml(new Date().toLocaleString("th-TH"))+'</p>'+sections+'</body></html>';
 }
 function exportDataset(data){
  const households=Array.isArray(data.households)?data.households:[],hepatitis=Array.isArray(data.hepatitis)?data.hepatitis:[],pets=Array.isArray(data.pets)?data.pets:[],communitySurveys=Array.isArray(data.communitySurveys)?data.communitySurveys:[];
@@ -251,27 +256,96 @@ let hasFittedHouseholds=false;
 let selectedLocationMarker=null;
 let accuracyCircle=null;
 let selectedCoordinates=null;
+let staffUser=null;
+let staffExpiryTimer=null;
+const STAFF_SESSION_STORAGE_KEY="chisStaffSession";
+function staffToken(){return sessionStorage.getItem(STAFF_SESSION_STORAGE_KEY)||""}
 function api(action,payload={}) {
   return new Promise((resolve,reject)=>{
     if(!window.google || !window.google.script || !window.google.script.run){
       reject(new Error("กรุณาเปิดเว็บแอป GAS จากปุ่มด้านบนเพื่ออ่านและบันทึกข้อมูล"));
       return;
     }
-    const runner=window.google.script.run.withSuccessHandler(resolve).withFailureHandler(error=>reject(new Error(error && error.message ? error.message : String(error))));
-    if(action==="getDashboard") runner.getDashboard();
-    else if(action==="getCommunitySurveys") runner.getCommunitySurveys();
+    const runner=window.google.script.run.withSuccessHandler(resolve).withFailureHandler(error=>{
+      const message=error&&error.message?error.message:String(error);
+      if(message.includes("AUTH_REQUIRED"))handleSessionExpired();
+      reject(new Error(message.includes("AUTH_REQUIRED")?"กรุณาเข้าสู่ระบบเจ้าหน้าที่อีกครั้ง":message));
+    });
+    if(action==="login") runner.login(payload.username,payload.password);
+    else if(action==="getCurrentUser") runner.getCurrentUser(payload.token||staffToken());
+    else if(action==="logout") runner.logout(payload.token||staffToken());
+    else if(action==="getDashboard") runner.getDashboard(staffToken());
+    else if(action==="getCommunitySurveys") runner.getCommunitySurveys(staffToken());
     else if(action==="saveHousehold") runner.saveHousehold(payload);
-    else if(action==="updateHouseholdCoordinates") runner.updateHouseholdCoordinates(payload);
-    else if(action==="saveHepatitis") runner.saveHepatitis(payload);
-    else if(action==="savePet") runner.savePet(payload);
-    else if(action==="saveCommunitySurvey") runner.saveCommunitySurvey(payload);
+    else if(action==="updateHouseholdCoordinates") runner.updateHouseholdCoordinates({...payload,token:staffToken()});
+    else if(action==="saveHepatitis") runner.saveHepatitis({...payload,token:staffToken()});
+    else if(action==="savePet") runner.savePet({...payload,token:staffToken()});
+    else if(action==="saveCommunitySurvey") runner.saveCommunitySurvey({...payload,token:staffToken()});
 
     else reject(new Error("ไม่พบคำสั่งที่ร้องขอ"));
   });
 }
+function setStaffView(user){
+  if(staffExpiryTimer){clearTimeout(staffExpiryTimer);staffExpiryTimer=null}
+  staffUser=user&&Number(user.expiresAt)>Date.now()?user:null;
+  if(user&&!staffUser)sessionStorage.removeItem(STAFF_SESSION_STORAGE_KEY);
+  if(staffUser)staffExpiryTimer=setTimeout(handleSessionExpired,Math.max(0,Number(staffUser.expiresAt)-Date.now()));
+  document.body.classList.toggle("guest-mode",!staffUser);
+  document.getElementById("sessionStatus").textContent=staffUser?"เข้าสู่ระบบ: "+staffUser.username:"โหมดบุคคลทั่วไป";
+  document.getElementById("logoutButton").classList.toggle("hidden",!staffUser);
+  document.querySelector(".login-card").classList.toggle("hidden",!!staffUser);
+  if(!staffUser)clearPrivateData();
+}
+function clearPrivateData(){
+  local.households=[];local.hepatitis=[];local.pets=[];local.communitySurveys=[];
+  renderTables();renderHouseholdSelect();
+  ["mHouse","mSurvey","mElder","mNcd","mDis","mPreg","hepScreen","hepPositive","hepTreat"].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent="0"});
+  const progress=document.getElementById("progress"),progressText=document.getElementById("progressText");
+  if(progress)progress.style.width="0%";if(progressText)progressText.textContent="0%";
+  if(householdLayer)householdLayer.clearLayers();householdMarkers=[];
+  if(communityMap&&selectedLocationMarker)communityMap.removeLayer(selectedLocationMarker);
+  if(communityMap&&accuracyCircle)communityMap.removeLayer(accuracyCircle);
+  selectedLocationMarker=null;accuracyCircle=null;selectedCoordinates=null;
+  const summary=document.getElementById("mapSummary");if(summary)summary.textContent="เข้าสู่ระบบเจ้าหน้าที่เพื่อดูหมุดครัวเรือน";
+}
+function handleSessionExpired(){
+  sessionStorage.removeItem(STAFF_SESSION_STORAGE_KEY);setStaffView(null);
+  const active=document.querySelector(".panel.active");
+  if(active&&active.hasAttribute("data-staff-only"))openPanel("publicHome");
+}
+async function staffLogin(event){
+  event.preventDefault();const form=event.target,button=form.querySelector('button[type="submit"]'),status=document.getElementById("loginStatus");
+  button.disabled=true;status.textContent="กำลังตรวจสอบบัญชีเจ้าหน้าที่…";
+  try{
+    const result=await api("login",formObj(form));
+    if(!result||!result.token)throw new Error("ไม่สามารถเริ่มเซสชันได้");
+    sessionStorage.setItem(STAFF_SESSION_STORAGE_KEY,result.token);setStaffView({username:result.username,expiresAt:result.expiresAt});form.reset();
+    status.textContent="เข้าสู่ระบบแล้ว";openPanel("dashboard");await loadDashboard();
+  }catch(error){status.textContent=error.message||"เข้าสู่ระบบไม่สำเร็จ"}
+  finally{button.disabled=false}
+}
+async function staffLogout(){
+  const token=staffToken();
+  try{if(token)await api("logout",{token})}catch(error){}
+  sessionStorage.removeItem(STAFF_SESSION_STORAGE_KEY);setStaffView(null);openPanel("publicHome");
+  document.getElementById("loginStatus").textContent="ออกจากระบบแล้ว";
+}
+async function initializeApp(){
+  const token=staffToken();
+  if(!window.google||!window.google.script||!window.google.script.run){document.getElementById("gasNotice").classList.remove("hidden");return}
+  if(!token){openPanel("publicHome");return}
+  try{const result=await api("getCurrentUser",{token});setStaffView({username:result.username,expiresAt:result.expiresAt});if(staffUser)await loadDashboard();else openPanel("publicHome")}
+  catch(error){handleSessionExpired();openPanel("publicHome")}
+}
+async function refreshSessionValidity(){
+  if(!staffUser)return;
+  try{const result=await api("getCurrentUser");if(staffUser)setStaffView({username:result.username,expiresAt:result.expiresAt})}catch(error){}
+}
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)refreshSessionValidity()});
 function openPanel(id,el){
   const panel=document.getElementById(id);
   if(!panel){toast("ไม่พบหน้าที่เลือก");return}
+  if(panel.hasAttribute("data-staff-only")&&!staffUser){toast("กรุณาเข้าสู่ระบบเจ้าหน้าที่เพื่อดูข้อมูลส่วนนี้");openPanel("publicHome");return}
   document.querySelectorAll(".panel").forEach(x=>{x.classList.toggle("active",x===panel);x.setAttribute("aria-hidden",x===panel?"false":"true")});
   const activeTab=el||document.querySelector('.tab[data-panel="'+id+'"]');
   document.querySelectorAll(".tab").forEach(x=>{const selected=x===activeTab;x.classList.toggle("active",selected);x.setAttribute("aria-selected",selected?"true":"false");x.tabIndex=selected?0:-1});
@@ -280,7 +354,7 @@ function openPanel(id,el){
 }
 document.querySelector(".tabs").addEventListener("click",event=>{const tab=event.target.closest(".tab[data-panel]");if(tab)openPanel(tab.dataset.panel,tab)});
 document.querySelector(".tabs").addEventListener("keydown",event=>{
-  const tabs=Array.from(document.querySelectorAll(".tab[data-panel]"));
+  const tabs=Array.from(document.querySelectorAll(".tab[data-panel]")).filter(tab=>!tab.hasAttribute("data-staff-only")||staffUser);
   const index=tabs.indexOf(event.target.closest(".tab[data-panel]"));
   if(index<0)return;
   let next=index;
@@ -293,7 +367,22 @@ document.querySelector(".tabs").addEventListener("keydown",event=>{
 });
 document.getElementById("mapHouseholdSelect").addEventListener("change",updateMapActionButtons);
 function formObj(f){return Object.fromEntries(new FormData(f).entries())}
-async function submitForm(e,action,message){e.preventDefault();const form=e.target;const button=form.querySelector('button[type="submit"],button:not([type])');if(button)button.disabled=true;try{await api(action,formObj(form));form.reset();toast(message);await loadDashboard()}catch(error){toast(error.message||"ไม่สามารถบันทึกข้อมูลได้")}finally{if(button)button.disabled=false}}
+function requestDeviceCoordinates(){
+ return new Promise(resolve=>{
+  if(!window.isSecureContext||!navigator.geolocation){resolve(null);return}
+  try{navigator.geolocation.getCurrentPosition(position=>resolve({lat:position.coords.latitude,lng:position.coords.longitude}),()=>resolve(null),{enableHighAccuracy:true,timeout:12000,maximumAge:0})}catch(error){resolve(null)}
+ });
+}
+async function submitForm(e,action,message){
+ e.preventDefault();const form=e.target,button=form.querySelector('button[type="submit"],button:not([type])');if(button)button.disabled=true;
+ try{
+  const payload=formObj(form),trackLocation=action==="saveHousehold";let hasLocation=payload.lat!==""&&payload.lat!=null&&payload.lng!==""&&payload.lng!=null;
+  if(trackLocation&&!hasLocation){if(button)button.textContent="กำลังขอตำแหน่งและบันทึก…";const point=await requestDeviceCoordinates();if(point){payload.lat=point.lat;payload.lng=point.lng;hasLocation=true}}
+  await api(action,payload);form.reset();
+  toast(message+(trackLocation?(hasLocation?" พร้อมพิกัดตำแหน่ง":" (ไม่ได้รับพิกัดตำแหน่งเครื่อง)"):""));if(staffUser)await loadDashboard();
+ }catch(error){toast(error.message||"ไม่สามารถบันทึกข้อมูลได้")}
+ finally{if(button){button.disabled=false;button.textContent="บันทึกข้อมูล"}}
+}
 function saveHousehold(e){return submitForm(e,"saveHousehold","บันทึกข้อมูลครัวเรือนสำเร็จ")}
 function saveHep(e){return submitForm(e,"saveHepatitis","บันทึกข้อมูลไวรัสตับอักเสบสำเร็จ")}
 function savePet(e){return submitForm(e,"savePet","บันทึกข้อมูลสัตว์เลี้ยงสำเร็จ")}
@@ -346,22 +435,25 @@ function removeSurveyMember(button){button.closest(".survey-person").remove();do
 async function saveCommunitySurvey(event){
  event.preventDefault();const form=event.target,button=form.querySelector('button[type="submit"]');button.disabled=true;
  try{
+  button.textContent="กำลังขอตำแหน่งและบันทึก…";
   const identity=collectSurveyFields(form.querySelector('[data-survey-section="identity"]'));
   const data={identity};
   ["household","environment","food","maternalChild","access"].forEach(section=>{data[section]=collectSurveyFields(form.querySelector('[data-survey-section="'+section+'"]'))});
   data.members=Array.from(document.querySelectorAll("#surveyMembers .survey-person")).map(collectSurveyFields).filter(member=>Object.values(member).some(value=>Array.isArray(value)?value.length>0:String(value||"").trim()!==""));
-  await api("saveCommunitySurvey",{householdId:identity.householdId,headName:identity.headName,collector:identity.collector,surveyDate:identity.surveyDate,data});
+  const location=await requestDeviceCoordinates();if(location)data.location=location;
+  await api("saveCommunitySurvey",{householdId:identity.householdId,headName:identity.headName,collector:identity.collector,surveyDate:identity.surveyDate,surveyStatus:identity.surveyStatus,lat:location?location.lat:"",lng:location?location.lng:"",data});
   form.reset();document.getElementById("surveyMembers").replaceChildren();addSurveyMember();
   form.elements.surveyDate.value=localDateString();
-  toast("บันทึกแบบสำรวจชุมชนและข้อมูลครัวเรือนแล้ว");await loadDashboard();
- }catch(error){toast(error.message||"ไม่สามารถบันทึกแบบสำรวจได้")}finally{button.disabled=false}
+  toast("บันทึกแบบสำรวจชุมชนแล้ว"+(location?" พร้อมพิกัดตำแหน่ง":" (ไม่ได้รับพิกัดตำแหน่งเครื่อง)"));if(staffUser)await loadDashboard();
+ }catch(error){toast(error.message||"ไม่สามารถบันทึกแบบสำรวจได้")}finally{button.disabled=false;button.textContent="บันทึกแบบสำรวจชุมชน"}
 }
 function localDateString(){const now=new Date();return new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10)}
 function num(x){return Number(x||0)}
 async function loadDashboard(){
+ if(!staffUser)return;
  let hs=local.households, hep=local.hepatitis;
-  try{const r=await api("getDashboard");if(!r||!Array.isArray(r.households))throw new Error("รูปแบบข้อมูลที่ได้รับไม่ถูกต้อง");local.households=r.households;local.hepatitis=Array.isArray(r.hepatitis)?r.hepatitis:[];local.pets=Array.isArray(r.pets)?r.pets:[];local.communitySurveys=Array.isArray(r.communitySurveys)?r.communitySurveys:[];hs=local.households;hep=local.hepatitis}
- catch(e){console.warn(e);toast("ไม่สามารถโหลดข้อมูลได้: "+(e.message||"กรุณาตรวจสอบการเชื่อมต่อ"))}
+  try{const r=await api("getDashboard");if(!staffUser)return;if(!r||!Array.isArray(r.households))throw new Error("รูปแบบข้อมูลที่ได้รับไม่ถูกต้อง");local.households=r.households;local.hepatitis=Array.isArray(r.hepatitis)?r.hepatitis:[];local.pets=Array.isArray(r.pets)?r.pets:[];local.communitySurveys=Array.isArray(r.communitySurveys)?r.communitySurveys:[];hs=local.households;hep=local.hepatitis}
+ catch(e){console.warn(e);if(!staffUser)return;toast("ไม่สามารถโหลดข้อมูลได้: "+(e.message||"กรุณาตรวจสอบการเชื่อมต่อ"))}
  const complete=hs.filter(x=>x.surveyStatus==="complete").length;
  document.getElementById("mHouse").textContent=hs.length;document.getElementById("mSurvey").textContent=complete;
  document.getElementById("mElder").textContent=hs.reduce((a,x)=>a+num(x.elderly),0);document.getElementById("mNcd").textContent=hs.reduce((a,x)=>a+num(x.ncd),0);
@@ -403,7 +495,7 @@ async function exportAllData(format){
  if(format==="pdf"){printWindow=window.open("about:blank","_blank");if(!printWindow){status.textContent="เบราว์เซอร์บล็อกหน้าต่างพิมพ์ กรุณาอนุญาตป๊อปอัปแล้วลองอีกครั้ง";return}}
  status.textContent="กำลังดึงข้อมูลล่าสุดจาก Google Sheets…";
  try{
-  const [data,surveyData]=await Promise.all([api("getDashboard"),api("getCommunitySurveys")]);if(!data||!Array.isArray(data.households))throw new Error("ไม่สามารถอ่านข้อมูลทั้งหมดได้");
+  const [data,surveyData]=await Promise.all([api("getDashboard"),api("getCommunitySurveys")]);if(!staffUser)throw new Error("เซสชันเจ้าหน้าที่สิ้นสุดแล้ว");if(!data||!Array.isArray(data.households))throw new Error("ไม่สามารถอ่านข้อมูลทั้งหมดได้");
   data.communitySurveys=surveyData&&Array.isArray(surveyData.communitySurveys)?surveyData.communitySurveys:[];
   const bundle=exportDataset(data),html=buildExportHtml(bundle),stamp=new Date().toISOString().slice(0,10);
   if(format==="word"){
@@ -535,7 +627,6 @@ function statusBadge(s){return `<span class="badge ${s==="pending"?"orange":""}"
 function toast(t){const x=document.getElementById("toast");x.textContent=t;x.style.display="block";setTimeout(()=>x.style.display="none",2500)}
 addSurveyMember();
 document.getElementById("communitySurveyForm").elements.surveyDate.value=localDateString();
-if(window.google&&window.google.script&&window.google.script.run)loadDashboard();
-else document.getElementById("gasNotice").classList.remove("hidden");
+initializeApp();
 </script>
 </body></html>
